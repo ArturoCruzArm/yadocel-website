@@ -62,9 +62,17 @@
         </nav>
     </header>
 
+    <!-- Mouse Glow -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="floating-badge">
+            <i class="fas fa-tools"></i>
+            <span>Garantizado</span>
+        </div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Reparación Profesional de Dispositivos Electrónicos</h1>
@@ -438,5 +446,469 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- 3D Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === MOUSE GLOW FOLLOWER ===
+            const glow = document.getElementById('mouseGlow');
+            document.addEventListener('mousemove', (e) => {
+                anime({
+                    targets: glow,
+                    left: e.clientX + 'px',
+                    top: e.clientY + 'px',
+                    duration: 500,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            // === CREAR PARTICULAS ===
+            const particlesContainer = document.getElementById('heroParticles');
+            if (particlesContainer) {
+                for (let i = 0; i < 40; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.width = (Math.random() * 6 + 2) + 'px';
+                    particle.style.height = particle.style.width;
+                    particlesContainer.appendChild(particle);
+                }
+
+                anime({
+                    targets: '.particle',
+                    translateY: () => anime.random(-80, 80),
+                    translateX: () => anime.random(-40, 40),
+                    opacity: [0, () => anime.random(0.4, 0.9), 0],
+                    scale: [0, 1, 0],
+                    duration: () => anime.random(3000, 5000),
+                    delay: () => anime.random(0, 2000),
+                    loop: true,
+                    easing: 'easeInOutSine'
+                });
+            }
+
+            // === PREPARAR TITULO HERO ===
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                heroTitle.innerHTML = heroTitle.textContent.split(' ').map(word =>
+                    `<span class="word">${word}</span>`
+                ).join(' ');
+            }
+
+            // === TIMELINE HERO ===
+            const heroTimeline = anime.timeline({ easing: 'easeOutExpo' });
+
+            heroTimeline
+                .add({
+                    targets: '.hero-title .word',
+                    translateY: [100, 0],
+                    rotateX: [-90, 0],
+                    opacity: [0, 1],
+                    duration: 1200,
+                    delay: anime.stagger(80),
+                    complete: () => heroTitle?.classList.add('glow')
+                }, 300)
+                .add({
+                    targets: '.hero-subtitle',
+                    translateY: [50, 0],
+                    opacity: [0, 1],
+                    filter: ['blur(10px)', 'blur(0px)'],
+                    duration: 1000
+                }, 800)
+                .add({
+                    targets: '.hero-buttons',
+                    translateY: [60, 0],
+                    opacity: [0, 1],
+                    duration: 1000
+                }, 1100)
+                .add({
+                    targets: '.hero-features',
+                    translateY: [50, 0],
+                    opacity: [0, 1],
+                    duration: 1000
+                }, 1300)
+                .add({
+                    targets: '.feature-item',
+                    translateY: [30, 0],
+                    scale: [0.8, 1],
+                    opacity: [0, 1],
+                    delay: anime.stagger(100),
+                    duration: 800,
+                    easing: 'easeOutBack'
+                }, 1400)
+                .add({
+                    targets: '.floating-badge',
+                    scale: [0, 1],
+                    rotate: [180, 0],
+                    opacity: [0, 1],
+                    duration: 1200,
+                    easing: 'easeOutElastic(1, .6)'
+                }, 1600);
+
+            // Badge flotando
+            anime({
+                targets: '.floating-badge',
+                translateY: [-10, 10],
+                rotate: [-3, 3],
+                duration: 2500,
+                direction: 'alternate',
+                loop: true,
+                easing: 'easeInOutSine',
+                delay: 2800
+            });
+
+            // === INTERSECTION OBSERVER ===
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        animateSection(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section:not(.hero)').forEach(section => {
+                scrollObserver.observe(section);
+            });
+
+            // === ANIMAR SECCIONES ===
+            function animateSection(section) {
+                const sectionClass = section.className.split(' ')[0];
+
+                // Header de seccion
+                const header = section.querySelector('.section-header');
+                if (header) {
+                    anime.timeline({ easing: 'easeOutExpo' })
+                        .add({
+                            targets: header.querySelector('h2'),
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1000
+                        })
+                        .add({
+                            targets: header.querySelector('p'),
+                            translateY: [30, 0],
+                            opacity: [0, 1],
+                            duration: 800
+                        }, '-=700');
+                }
+
+                // Por seccion
+                switch(sectionClass) {
+                    case 'services':
+                        anime({
+                            targets: section.querySelectorAll('.service-card'),
+                            translateY: [100, 0],
+                            rotateX: [15, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(150),
+                            duration: 1200,
+                            easing: 'easeOutElastic(1, .6)'
+                        });
+                        break;
+
+                    case 'products':
+                        anime({
+                            targets: section.querySelectorAll('.product-card'),
+                            scale: [0.8, 1],
+                            rotateY: [-10, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100, {grid: [3, 2], from: 'center'}),
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                        break;
+
+                    case 'why-us':
+                        anime({
+                            targets: section.querySelectorAll('.feature-box'),
+                            translateY: [80, 0],
+                            rotateX: [10, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100, {grid: [3, 2], from: 'first'}),
+                            duration: 1100,
+                            easing: 'easeOutBack'
+                        });
+                        break;
+
+                    case 'contact':
+                        anime({
+                            targets: section.querySelectorAll('.info-card'),
+                            translateX: [-80, 0],
+                            rotateY: [-15, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100),
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                        anime({
+                            targets: section.querySelector('.contact-form-wrapper'),
+                            translateX: [80, 0],
+                            rotateY: [15, 0],
+                            opacity: [0, 1],
+                            duration: 1200,
+                            delay: 300,
+                            easing: 'easeOutExpo'
+                        });
+                        anime({
+                            targets: section.querySelector('.map-container'),
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            delay: 600,
+                            easing: 'easeOutExpo'
+                        });
+                        break;
+                }
+            }
+
+            // Animar footer
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: '.footer-section',
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            delay: anime.stagger(100),
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+                        footerObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            const footer = document.querySelector('.footer');
+            if (footer) footerObserver.observe(footer);
+
+            // === TILT 3D EN CARDS ===
+            function addTiltEffect(selector, intensity = 10) {
+                document.querySelectorAll(selector).forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = (y - centerY) / intensity;
+                        const rotateY = (centerX - x) / intensity;
+
+                        // Update CSS variable for glow position
+                        card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
+                        card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
+
+                        anime({
+                            targets: card,
+                            rotateX: rotateX,
+                            rotateY: rotateY,
+                            scale: 1.05,
+                            boxShadow: '0 25px 50px rgba(0,0,0,0.2)',
+                            duration: 100,
+                            easing: 'linear'
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        anime({
+                            targets: card,
+                            rotateX: 0,
+                            rotateY: 0,
+                            scale: 1,
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            duration: 600,
+                            easing: 'easeOutElastic(1, .5)'
+                        });
+                    });
+                });
+            }
+
+            addTiltEffect('.service-card', 12);
+            addTiltEffect('.product-card', 15);
+            addTiltEffect('.feature-box', 12);
+            addTiltEffect('.info-card', 15);
+
+            // === PARALLAX EN HERO ===
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { innerWidth, innerHeight } = window;
+                    const moveX = (clientX - innerWidth / 2) / innerWidth;
+                    const moveY = (clientY - innerHeight / 2) / innerHeight;
+
+                    anime({
+                        targets: '.hero-content',
+                        translateX: moveX * -15,
+                        translateY: moveY * -15,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+
+                    anime({
+                        targets: '.floating-badge',
+                        translateX: moveX * 30,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            }
+
+            // === EFECTO MAGNETICO EN BOTONES ===
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    anime({
+                        targets: btn,
+                        translateX: x * 0.3,
+                        translateY: y * 0.3,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: btn,
+                        translateX: 0,
+                        translateY: 0,
+                        duration: 600,
+                        easing: 'easeOutElastic(1, .3)'
+                    });
+                });
+            });
+
+            // === HOVER EN ICONOS DE SERVICIOS ===
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: card.querySelector('.service-icon'),
+                        rotateY: 360,
+                        scale: 1.15,
+                        duration: 800,
+                        easing: 'easeOutElastic(1, .5)'
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: card.querySelector('.service-icon'),
+                        rotateY: 0,
+                        scale: 1,
+                        duration: 600,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // === WHATSAPP BUTTON ANIMATION ===
+            anime({
+                targets: '.whatsapp-float',
+                scale: [0, 1],
+                rotate: [180, 0],
+                duration: 1000,
+                delay: 2000,
+                easing: 'easeOutElastic(1, .5)'
+            });
+
+            // Hover effect
+            document.querySelector('.whatsapp-float')?.addEventListener('mouseenter', () => {
+                anime({
+                    targets: '.whatsapp-float',
+                    scale: 1.15,
+                    rotate: 10,
+                    duration: 300,
+                    easing: 'easeOutBack'
+                });
+            });
+
+            document.querySelector('.whatsapp-float')?.addEventListener('mouseleave', () => {
+                anime({
+                    targets: '.whatsapp-float',
+                    scale: 1,
+                    rotate: 0,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            // === NAVBAR HIDE/SHOW ON SCROLL ===
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    if (currentScroll > lastScroll) {
+                        header.classList.add('hidden');
+                    } else {
+                        header.classList.remove('hidden');
+                    }
+                } else {
+                    header.classList.remove('hidden');
+                }
+                lastScroll = currentScroll;
+            });
+
+            // === FORM INPUT ANIMATIONS ===
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
+                input.addEventListener('focus', () => {
+                    anime({
+                        targets: input,
+                        scale: 1.02,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                input.addEventListener('blur', () => {
+                    anime({
+                        targets: input,
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // === SOCIAL LINKS HOVER ===
+            document.querySelectorAll('.social-links a').forEach((link, index) => {
+                link.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: link,
+                        translateY: -8,
+                        scale: 1.2,
+                        rotate: 10,
+                        duration: 300,
+                        easing: 'easeOutBack'
+                    });
+                });
+
+                link.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: link,
+                        translateY: 0,
+                        scale: 1,
+                        rotate: 0,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>

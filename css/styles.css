@@ -919,3 +919,344 @@ ul {
 .mb-1 { margin-bottom: 10px; }
 .mb-2 { margin-bottom: 20px; }
 .mb-3 { margin-bottom: 30px; }
+
+/* ================================
+   ANIME.JS 3D ANIMATIONS
+   ================================ */
+
+/* Mouse Glow Follower */
+.mouse-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+body:hover .mouse-glow {
+    opacity: 1;
+}
+
+/* Hero Animations */
+.hero {
+    perspective: 1000px;
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-buttons,
+.hero-features {
+    opacity: 0;
+}
+
+.hero-title .word {
+    display: inline-block;
+    opacity: 0;
+}
+
+.hero-title.glow {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Floating particles */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* Section animations */
+.section-header h2,
+.section-header p {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Service Cards 3D */
+.services-grid {
+    perspective: 2000px;
+}
+
+.service-card {
+    opacity: 0;
+    transform: translateY(100px) rotateX(15deg);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(37, 99, 235, 0.15) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.15) rotateY(360deg);
+}
+
+/* Product Cards 3D */
+.products-grid {
+    perspective: 2000px;
+}
+
+.product-card {
+    opacity: 0;
+    transform: scale(0.8) rotateY(-10deg);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.product-card:hover::after {
+    transform: translateX(100%);
+}
+
+.product-icon {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+
+.product-card:hover .product-icon {
+    transform: scale(1.2) rotate(10deg);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+}
+
+/* Feature Boxes 3D */
+.features-grid {
+    perspective: 2000px;
+}
+
+.feature-box {
+    opacity: 0;
+    transform: translateY(80px) rotateX(10deg);
+    transform-style: preserve-3d;
+}
+
+.feature-icon {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.15) rotateY(180deg);
+}
+
+/* Contact Cards 3D */
+.contact-info {
+    perspective: 1500px;
+}
+
+.info-card {
+    opacity: 0;
+    transform: translateX(-80px) rotateY(-15deg);
+}
+
+.contact-form-wrapper {
+    opacity: 0;
+    transform: translateX(80px) rotateY(15deg);
+}
+
+/* Form inputs animation */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+/* Map 3D */
+.map-container {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.map-wrapper {
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.map-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer animation */
+.footer-section {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.social-links a {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+
+.social-links a:hover {
+    transform: translateY(-8px) scale(1.1);
+}
+
+/* WhatsApp button enhanced */
+.whatsapp-float {
+    animation: none;
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    animation: whatsappPulse 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Back to top enhanced */
+.back-to-top {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+
+.back-to-top:hover {
+    transform: translateY(-8px) rotate(360deg);
+}
+
+/* Magnetic button effect */
+.btn {
+    transition: transform 0.2s ease-out, box-shadow 0.3s;
+}
+
+/* Navbar scroll animation */
+.header {
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+/* Floating badge */
+.floating-badge {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.floating-badge i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.floating-badge span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Stats counter */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    opacity: 0;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Reveal animations */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-80px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+}
