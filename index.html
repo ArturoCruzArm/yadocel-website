@@ -3,58 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="YADOCEL - Reparación de celulares, tablets y computadoras en León. Servicio profesional y garantizado. Portal Padilla #111, Zona Centro.">
-    <meta name="keywords" content="reparación celulares León, reparación tablets, reparación computadoras, accesorios celulares, YADOCEL">
+    <meta name="description" content="YADOCEL - Reparación de celulares, venta a crédito, micas de hidrogel y accesorios premium en León, Gto. Portal Padilla #111, Zona Centro.">
+    <meta name="keywords" content="reparación celulares León, celulares a crédito, micas hidrogel, fundas premium, YADOCEL, accesorios celulares León">
     <meta name="author" content="YADOCEL">
-    <title>YADOCEL - Reparación de Celulares, Tablets y Computadoras | León, Gto.</title>
+    <title>YADOCEL - Celulares, Reparación y Accesorios Premium | León, Gto.</title>
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="YADOCEL - Reparación de Celulares y Accesorios">
-    <meta property="og:description" content="Servicio profesional de reparación de celulares, tablets y computadoras en el centro de León">
+    <meta property="og:title" content="YADOCEL - Celulares y Accesorios Premium en León">
+    <meta property="og:description" content="Reparación profesional, celulares a crédito, micas de hidrogel y fundas premium. Portal Padilla #111, Centro de León.">
     <meta property="og:type" content="website">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/524772067575?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios"
-       class="whatsapp-float"
-       target="_blank"
-       aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+       class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-pulse"></span>
     </a>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="navbar">
             <div class="container">
                 <div class="nav-wrapper">
-                    <div class="logo">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>YADOCEL</span>
-                    </div>
-                    <button class="menu-toggle" aria-label="Toggle menu">
+                    <a href="#inicio" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-mobile-screen-button"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-name">YADOCEL</span>
+                            <span class="logo-tagline">Tech & Repair</span>
+                        </div>
+                    </a>
+                    <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                    <ul class="nav-menu">
+                    <ul class="nav-menu" id="navMenu">
                         <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#credito">A Crédito</a></li>
+                        <li><a href="#micas">Micas</a></li>
                         <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#galeria">Galería</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -62,283 +65,391 @@
         </nav>
     </header>
 
-    <!-- Mouse Glow -->
-    <div class="mouse-glow" id="mouseGlow"></div>
-
     <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-particles" id="heroParticles"></div>
-        <div class="floating-badge">
-            <i class="fas fa-tools"></i>
-            <span>Garantizado</span>
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active" style="background-image: url('images/hero-vitrina.webp')"></div>
+            <div class="hero-slide" style="background-image: url('images/hero-fundas.webp')"></div>
+            <div class="hero-slide" style="background-image: url('images/hero-micas.webp')"></div>
         </div>
-        <div class="container">
+        <div class="hero-overlay"></div>
+        <div class="hero-glow hero-glow--left"></div>
+        <div class="hero-glow hero-glow--right"></div>
+
+        <div class="container hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Reparación Profesional de Dispositivos Electrónicos</h1>
-                <p class="hero-subtitle">Celulares, Tablets y Computadoras - Servicio de Calidad en el Centro de León</p>
+                <div class="hero-badge">
+                    <span class="hero-badge__dot"></span>
+                    Centro de León, Gto.
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title__line">Tu celular en</span>
+                    <span class="hero-title__line hero-title__accent">las mejores manos</span>
+                </h1>
+                <p class="hero-subtitle">Reparamos, vendemos y protegemos. Celulares a crédito, micas de hidrogel premium y el mejor servicio técnico.</p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Solicitar Cotización</a>
-                    <a href="tel:4772067575" class="btn btn-secondary">
-                        <i class="fas fa-phone"></i> Llamar Ahora
+                    <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20información" class="btn btn--primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Escríbenos
+                    </a>
+                    <a href="tel:4772067575" class="btn btn--glass">
+                        <i class="fas fa-phone"></i> 477 206 7575
                     </a>
                 </div>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Garantía en Reparaciones</span>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">+10</span>
+                        <span class="hero-stat__label">Años de experiencia</span>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-tools"></i>
-                        <span>Técnicos Especializados</span>
+                    <div class="hero-stat__divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">100%</span>
+                        <span class="hero-stat__label">Garantía</span>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Servicio Rápido</span>
+                    <div class="hero-stat__divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">500+</span>
+                        <span class="hero-stat__label">Fundas disponibles</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="hero-slider-dots" id="sliderDots">
+            <button class="slider-dot active" data-slide="0"></button>
+            <button class="slider-dot" data-slide="1"></button>
+            <button class="slider-dot" data-slide="2"></button>
+        </div>
+
+        <div class="hero-scroll">
+            <span>Descubre más</span>
+            <div class="hero-scroll__line"></div>
+        </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
+    <!-- Celulares a Crédito -->
+    <section id="credito" class="credito">
+        <div class="section-glow section-glow--magenta"></div>
         <div class="container">
-            <div class="section-header">
-                <h2>Nuestros Servicios</h2>
-                <p>Reparamos todo tipo de dispositivos con la mejor calidad y garantía</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-screen-button"></i>
-                    </div>
-                    <h3>Reparación de Celulares</h3>
-                    <p>Reparamos todas las marcas: iPhone, Samsung, Xiaomi, Huawei, Motorola y más.</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check"></i> Cambio de pantallas</li>
-                        <li><i class="fas fa-check"></i> Reemplazo de baterías</li>
-                        <li><i class="fas fa-check"></i> Reparación de cámaras</li>
-                        <li><i class="fas fa-check"></i> Botones y puertos de carga</li>
-                        <li><i class="fas fa-check"></i> Software y desbloqueos</li>
+            <div class="credito-grid">
+                <div class="credito-content reveal-up">
+                    <span class="section-tag"><i class="fas fa-dollar-sign"></i> Financiamiento</span>
+                    <h2 class="section-title">Celulares<br><span class="text-gradient">a Crédito</span></h2>
+                    <p class="section-desc">Llévate tu celular nuevo hoy mismo. Sistema de apartado y crédito fácil, rápido y sin complicaciones.</p>
+                    <ul class="credito-features">
+                        <li>
+                            <div class="credito-feature__icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <strong>Entrega Inmediata</strong>
+                                <span>Te llevas tu celular el mismo día</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="credito-feature__icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                            <div>
+                                <strong>Fácil y Rápido</strong>
+                                <span>Sin trámites complicados</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="credito-feature__icon"><i class="fas fa-box-open"></i></div>
+                            <div>
+                                <strong>Sistema de Apartado</strong>
+                                <span>Aparta tu equipo con poco</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="credito-feature__icon"><i class="fas fa-tags"></i></div>
+                            <div>
+                                <strong>Las Mejores Marcas</strong>
+                                <span>iPhone, Samsung, Xiaomi, Motorola y más</span>
+                            </div>
+                        </li>
                     </ul>
+                    <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20info%20sobre%20celulares%20a%20cr%C3%A9dito" class="btn btn--primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pregunta por requisitos
+                    </a>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tablet-screen-button"></i>
-                    </div>
-                    <h3>Reparación de Tablets</h3>
-                    <p>Servicio especializado para tablets de todas las marcas y modelos.</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check"></i> Pantallas táctiles</li>
-                        <li><i class="fas fa-check"></i> Cambio de baterías</li>
-                        <li><i class="fas fa-check"></i> Puertos de carga</li>
-                        <li><i class="fas fa-check"></i> Problemas de software</li>
-                        <li><i class="fas fa-check"></i> Actualizaciones de sistema</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Reparación de Computadoras</h3>
-                    <p>Diagnóstico y reparación de laptops y computadoras de escritorio.</p>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check"></i> Limpieza y mantenimiento</li>
-                        <li><i class="fas fa-check"></i> Cambio de componentes</li>
-                        <li><i class="fas fa-check"></i> Instalación de software</li>
-                        <li><i class="fas fa-check"></i> Eliminación de virus</li>
-                        <li><i class="fas fa-check"></i> Recuperación de datos</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="productos" class="products">
-        <div class="container">
-            <div class="section-header">
-                <h2>Accesorios y Productos</h2>
-                <p>Encuentra los mejores accesorios para tu dispositivo</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <h3>Protectores de Pantalla</h3>
-                    <p>Micas de cristal templado y protectores de alta calidad para todos los modelos</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Fundas y Cases</h3>
-                    <p>Amplia variedad de fundas protectoras de diferentes estilos y marcas</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-charging-station"></i>
-                    </div>
-                    <h3>Cargadores y Cables</h3>
-                    <p>Cargadores originales y compatibles, cables USB-C, Lightning y Micro USB</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-battery-full"></i>
-                    </div>
-                    <h3>Power Banks</h3>
-                    <p>Baterías portátiles de diferentes capacidades para mantener tu dispositivo cargado</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-headphones"></i>
-                    </div>
-                    <h3>Audífonos</h3>
-                    <p>Audífonos inalámbricos, con cable, in-ear y over-ear de las mejores marcas</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-memory"></i>
-                    </div>
-                    <h3>Memorias USB y SD</h3>
-                    <p>Memorias USB y tarjetas SD de diferentes capacidades de almacenamiento</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="nosotros" class="why-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>¿Por Qué Elegirnos?</h2>
-                <p>Somos tu mejor opción en León para reparación de dispositivos</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Calidad Garantizada</h3>
-                    <p>Todos nuestros servicios incluyen garantía y utilizamos repuestos de calidad</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Técnicos Certificados</h3>
-                    <p>Personal capacitado y con experiencia en reparación de dispositivos electrónicos</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Servicio Express</h3>
-                    <p>Reparaciones rápidas, muchas de ellas listas el mismo día</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3>Precios Justos</h3>
-                    <p>Los mejores precios del mercado sin comprometer la calidad del servicio</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
-                    <h3>Diagnóstico Gratuito</h3>
-                    <p>Revisión sin costo para determinar el problema de tu dispositivo</p>
-                </div>
-
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Ubicación Céntrica</h3>
-                    <p>En pleno centro de León, zona peatonal de fácil acceso</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contáctanos</h2>
-                <p>Estamos para servirte, visítanos o comunícate con nosotros</p>
-            </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                <div class="credito-visual reveal-up" style="animation-delay: 0.2s">
+                    <div class="credito-card">
+                        <img src="images/local-vitrina1.webp" alt="Celulares a crédito en YADOCEL" class="credito-card__img" loading="lazy">
+                        <div class="credito-card__badge">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Crédito Disponible</span>
                         </div>
-                        <div class="info-content">
+                    </div>
+                    <div class="credito-floating-tag credito-floating-tag--1">
+                        <i class="fas fa-check-circle"></i> Sin buró
+                    </div>
+                    <div class="credito-floating-tag credito-floating-tag--2">
+                        <i class="fas fa-star"></i> Equipos nuevos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Micas de Hidrogel -->
+    <section id="micas" class="micas">
+        <div class="section-glow section-glow--cyan"></div>
+        <div class="container">
+            <div class="micas-header reveal-up">
+                <span class="section-tag"><i class="fas fa-shield-halved"></i> Protección Premium</span>
+                <h2 class="section-title">Micas de<br><span class="text-gradient-cyan">Hidrogel Premium</span></h2>
+                <p class="section-desc">La mejor protección para tu pantalla. Instalación profesional sin burbujas.</p>
+            </div>
+
+            <div class="micas-grid">
+                <div class="mica-card reveal-up" style="animation-delay: 0.1s">
+                    <div class="mica-card__glow mica-card__glow--green"></div>
+                    <div class="mica-card__icon">
+                        <i class="fas fa-eye-low-vision"></i>
+                    </div>
+                    <h3 class="mica-card__title">Hidrogel Mate</h3>
+                    <p class="mica-card__desc">Anti-huellas, anti-reflejo y tacto suave. Ideal para uso prolongado sin cansancio visual.</p>
+                    <ul class="mica-card__features">
+                        <li><i class="fas fa-check"></i> Anti-fingerprint</li>
+                        <li><i class="fas fa-check"></i> Anti-glare</li>
+                        <li><i class="fas fa-check"></i> Smooth touch</li>
+                        <li><i class="fas fa-check"></i> Full coverage</li>
+                    </ul>
+                    <div class="mica-card__cta">
+                        <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20una%20mica%20hidrogel%20MATE" target="_blank">Pedir ahora <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="mica-card mica-card--featured reveal-up" style="animation-delay: 0.2s">
+                    <div class="mica-card__popular">Más vendida</div>
+                    <div class="mica-card__glow mica-card__glow--cyan"></div>
+                    <div class="mica-card__icon">
+                        <i class="fas fa-diamond"></i>
+                    </div>
+                    <h3 class="mica-card__title">Hidrogel HD Clear</h3>
+                    <p class="mica-card__desc">Máxima claridad y definición. Protección invisible con nitidez extrema para tu pantalla.</p>
+                    <ul class="mica-card__features">
+                        <li><i class="fas fa-check"></i> High Definition</li>
+                        <li><i class="fas fa-check"></i> Ultra clear</li>
+                        <li><i class="fas fa-check"></i> Bubble free</li>
+                        <li><i class="fas fa-check"></i> Full coverage</li>
+                    </ul>
+                    <div class="mica-card__cta">
+                        <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20una%20mica%20hidrogel%20HD%20CLEAR" target="_blank">Pedir ahora <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="mica-card reveal-up" style="animation-delay: 0.3s">
+                    <div class="mica-card__glow mica-card__glow--purple"></div>
+                    <div class="mica-card__icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="mica-card__title">Hidrogel Privacidad</h3>
+                    <p class="mica-card__desc">Solo tú ves tu pantalla. Protección anti-espía que bloquea la vista desde ángulos laterales.</p>
+                    <ul class="mica-card__features">
+                        <li><i class="fas fa-check"></i> Privacy protection</li>
+                        <li><i class="fas fa-check"></i> Anti-spy</li>
+                        <li><i class="fas fa-check"></i> Anti-scratch</li>
+                        <li><i class="fas fa-check"></i> Full coverage</li>
+                    </ul>
+                    <div class="mica-card__cta">
+                        <a href="https://wa.me/524772067575?text=Hola%2C%20quiero%20una%20mica%20hidrogel%20PRIVACIDAD" target="_blank">Pedir ahora <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="micas-banner reveal-up">
+                <img src="images/hero-micas.webp" alt="Micas de hidrogel premium YADOCEL" loading="lazy">
+                <div class="micas-banner__overlay">
+                    <p>Instalación profesional incluida &mdash; sin burbujas, sin polvo, perfecta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios de Reparación -->
+    <section id="servicios" class="servicios">
+        <div class="section-glow section-glow--purple"></div>
+        <div class="container">
+            <div class="servicios-header reveal-up">
+                <span class="section-tag"><i class="fas fa-wrench"></i> Servicio Técnico</span>
+                <h2 class="section-title">Reparación<br><span class="text-gradient-purple">Profesional</span></h2>
+                <p class="section-desc">Reparamos todas las marcas con garantía. Técnicos especializados y refacciones de calidad.</p>
+            </div>
+
+            <div class="servicios-grid">
+                <div class="servicio-card reveal-up">
+                    <div class="servicio-card__number">01</div>
+                    <div class="servicio-card__icon"><i class="fas fa-mobile-screen"></i></div>
+                    <h3>Pantallas</h3>
+                    <p>Cambio de pantallas rotas o dañadas para iPhone, Samsung, Xiaomi y más marcas.</p>
+                </div>
+                <div class="servicio-card reveal-up" style="animation-delay: 0.1s">
+                    <div class="servicio-card__number">02</div>
+                    <div class="servicio-card__icon"><i class="fas fa-battery-three-quarters"></i></div>
+                    <h3>Baterías</h3>
+                    <p>Reemplazo de baterías originales y compatibles. Tu celular como nuevo.</p>
+                </div>
+                <div class="servicio-card reveal-up" style="animation-delay: 0.2s">
+                    <div class="servicio-card__number">03</div>
+                    <div class="servicio-card__icon"><i class="fas fa-camera"></i></div>
+                    <h3>Cámaras</h3>
+                    <p>Reparación y cambio de cámaras frontales y traseras de cualquier modelo.</p>
+                </div>
+                <div class="servicio-card reveal-up" style="animation-delay: 0.3s">
+                    <div class="servicio-card__number">04</div>
+                    <div class="servicio-card__icon"><i class="fas fa-plug"></i></div>
+                    <h3>Puertos de Carga</h3>
+                    <p>Solución a problemas de carga y conexión. Puertos USB-C y Lightning.</p>
+                </div>
+                <div class="servicio-card reveal-up" style="animation-delay: 0.4s">
+                    <div class="servicio-card__number">05</div>
+                    <div class="servicio-card__icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Software</h3>
+                    <p>Desbloqueos, actualizaciones, eliminación de virus y respaldo de datos.</p>
+                </div>
+                <div class="servicio-card reveal-up" style="animation-delay: 0.5s">
+                    <div class="servicio-card__number">06</div>
+                    <div class="servicio-card__icon"><i class="fas fa-tablet-screen-button"></i></div>
+                    <h3>Tablets y Laptops</h3>
+                    <p>También reparamos tablets y computadoras. Diagnóstico gratuito.</p>
+                </div>
+            </div>
+
+            <div class="servicios-cta reveal-up">
+                <div class="servicios-cta__content">
+                    <div class="servicios-cta__icon"><i class="fas fa-stethoscope"></i></div>
+                    <div>
+                        <h3>Diagnóstico Gratuito</h3>
+                        <p>Trae tu equipo y te decimos qué tiene sin costo. Sin compromiso.</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/524772067575?text=Hola%2C%20necesito%20un%20diagn%C3%B3stico%20para%20mi%20equipo" class="btn btn--primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Agendar cita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accesorios -->
+    <section class="accesorios">
+        <div class="container">
+            <div class="accesorios-header reveal-up">
+                <span class="section-tag"><i class="fas fa-gem"></i> Accesorios</span>
+                <h2 class="section-title">Fundas y<br><span class="text-gradient">Accesorios Premium</span></h2>
+            </div>
+            <div class="accesorios-scroll reveal-up">
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-mobile-alt"></i></div>
+                    <span>Fundas Premium</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-charging-station"></i></div>
+                    <span>Cargadores</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-headphones"></i></div>
+                    <span>Audífonos</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-battery-full"></i></div>
+                    <span>Power Banks</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-usb"></i></div>
+                    <span>Cables</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-sd-card"></i></div>
+                    <span>Memorias</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-volume-high"></i></div>
+                    <span>Bocinas</span>
+                </div>
+                <div class="accesorio-item">
+                    <div class="accesorio-item__icon"><i class="fas fa-car"></i></div>
+                    <span>Soportes Auto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <div class="galeria-header reveal-up">
+                <span class="section-tag"><i class="fas fa-images"></i> Nuestra Tienda</span>
+                <h2 class="section-title">Visita<br><span class="text-gradient-cyan">YADOCEL</span></h2>
+                <p class="section-desc">Conoce nuestro local en el centro de León. Más de 500 fundas y accesorios te esperan.</p>
+            </div>
+            <div class="galeria-grid reveal-up">
+                <div class="galeria-item galeria-item--wide">
+                    <img src="images/local-fachada.webp" alt="Fachada YADOCEL Portal Padilla 111" loading="lazy">
+                    <div class="galeria-item__label">Portal Padilla #111</div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/local-vitrina2.webp" alt="Vitrina de celulares YADOCEL" loading="lazy">
+                    <div class="galeria-item__label">Vitrina de Equipos</div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/local-fundas.webp" alt="Fundas para celular YADOCEL" loading="lazy">
+                    <div class="galeria-item__label">Fundas para Todos</div>
+                </div>
+                <div class="galeria-item galeria-item--wide">
+                    <img src="images/hero-vitrina.webp" alt="Fundas premium YADOCEL" loading="lazy">
+                    <div class="galeria-item__label">Calidad Premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="section-glow section-glow--magenta"></div>
+        <div class="container">
+            <div class="contacto-header reveal-up">
+                <span class="section-tag"><i class="fas fa-map-pin"></i> Encuéntranos</span>
+                <h2 class="section-title">Visítanos o<br><span class="text-gradient">Contáctanos</span></h2>
+            </div>
+
+            <div class="contacto-grid">
+                <div class="contacto-info reveal-up">
+                    <div class="contacto-card">
+                        <div class="contacto-card__icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contacto-card__content">
                             <h3>Ubicación</h3>
                             <p>Portal Padilla #111<br>Zona Centro, Zona Peatonal<br>León, Guanajuato</p>
                         </div>
                     </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-content">
+                    <div class="contacto-card">
+                        <div class="contacto-card__icon"><i class="fas fa-phone"></i></div>
+                        <div class="contacto-card__content">
                             <h3>Teléfonos</h3>
-                            <p>
-                                <a href="tel:4772067575">477 206 7575</a> - Eduardo Yado<br>
-                                <a href="tel:4775731618">477 573 1618</a> - Danae Arriaga
-                            </p>
+                            <p><a href="tel:4772067575">477 206 7575</a> — Eduardo Yado<br>
+                               <a href="tel:4775731618">477 573 1618</a> — Danae Arriaga</p>
                         </div>
                     </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-content">
+                    <div class="contacto-card">
+                        <div class="contacto-card__icon"><i class="fas fa-clock"></i></div>
+                        <div class="contacto-card__content">
                             <h3>Horarios</h3>
-                            <p>
-                                Lunes a Sábado: 10:00 AM - 8:30 PM<br>
-                                Domingo: 10:00 AM - 6:00 PM
-                            </p>
+                            <p>Lunes a Sábado: <strong>10:00 AM — 8:30 PM</strong><br>
+                               Domingo: <strong>10:00 AM — 6:00 PM</strong></p>
                         </div>
                     </div>
-
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="info-content">
+                    <div class="contacto-card">
+                        <div class="contacto-card__icon contacto-card__icon--wa"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contacto-card__content">
                             <h3>WhatsApp</h3>
-                            <p>
-                                <a href="https://wa.me/524772067575" target="_blank">477 206 7575</a><br>
-                                <small>Click para enviar mensaje</small>
-                            </p>
+                            <p><a href="https://wa.me/524772067575" target="_blank">477 206 7575</a><br>
+                               <small>Respuesta rápida</small></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
-                        <h3>Envíanos un Mensaje</h3>
+                <div class="contacto-form-wrapper reveal-up" style="animation-delay: 0.2s">
+                    <form id="contactForm" class="contacto-form">
+                        <h3><i class="fas fa-paper-plane"></i> Envíanos un Mensaje</h3>
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
                         </div>
                         <div class="form-group">
                             <input type="tel" id="phone" name="phone" placeholder="Teléfono" required>
@@ -348,38 +459,32 @@
                         </div>
                         <div class="form-group">
                             <select id="service" name="service" required>
-                                <option value="">Selecciona un servicio</option>
-                                <option value="celular">Reparación de Celular</option>
-                                <option value="tablet">Reparación de Tablet</option>
-                                <option value="computadora">Reparación de Computadora</option>
-                                <option value="accesorios">Accesorios</option>
+                                <option value="">¿Qué necesitas?</option>
+                                <option value="credito">Celular a Crédito</option>
+                                <option value="mica">Mica de Hidrogel</option>
+                                <option value="reparacion">Reparación</option>
+                                <option value="fundas">Fundas / Accesorios</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Describe tu problema o consulta" required></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Describe qué necesitas..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        <button type="submit" class="btn btn--primary btn--block">
+                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- Map -->
-            <div class="map-container">
-                <h3>Encuéntranos en el Mapa</h3>
-                <div class="map-wrapper">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!3m2!1ses!2sus!4v1766160617194!5m2!1ses!2sus!6m8!1m7!1sXT9vU6wLFfsYe8DDObf7ew!2m2!1d21.12191576427994!2d-101.6838725606974!3f215.8772345669741!4f-3.316655919912364!5f0.7820865974627469"
-                        width="100%"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+            <div class="contacto-map reveal-up">
+                <a href="https://maps.app.goo.gl/bhpgvTnXFsgyA5S19" target="_blank" class="map-wrapper map-wrapper--img" aria-label="Abrir en Google Maps">
+                    <img src="images/local-fachada.webp" alt="YADOCEL — Portal Padilla #111, Zona Centro, León Gto." loading="lazy">
+                    <div class="map-wrapper__overlay">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Abrir en Google Maps</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -387,528 +492,54 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-mobile-alt"></i> YADOCEL</h3>
-                    <p>Tu solución profesional para reparación de dispositivos electrónicos en León, Guanajuato.</p>
-                    <div class="social-links">
-                        <a href="https://wa.me/524772067575" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                        <div class="logo-text">
+                            <span class="logo-name">YADOCEL</span>
+                            <span class="logo-tagline">Tech & Repair</span>
+                        </div>
+                    </div>
+                    <p>Tu solución integral en celulares, reparación y accesorios premium en el centro de León.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/524772067575" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100079533887715" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#servicios">Reparación de Celulares</a></li>
-                        <li><a href="#servicios">Reparación de Tablets</a></li>
-                        <li><a href="#servicios">Reparación de Computadoras</a></li>
-                        <li><a href="#productos">Accesorios</a></li>
+                        <li><a href="#credito">Celulares a Crédito</a></li>
+                        <li><a href="#micas">Micas de Hidrogel</a></li>
+                        <li><a href="#servicios">Reparación</a></li>
+                        <li><a href="#galeria">Galería</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
+                <div class="footer-links">
                     <h4>Contacto</h4>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Portal Padilla #111, Centro</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:4772067575">477 206 7575</a></li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:4775731618">477 573 1618</a></li>
-                        <li><i class="fas fa-clock"></i> Lun-Sáb: 10AM-8:30PM</li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Horarios</h4>
-                    <ul>
-                        <li>Lunes a Sábado<br><strong>10:00 AM - 8:30 PM</strong></li>
-                        <li>Domingo<br><strong>10:00 AM - 6:00 PM</strong></li>
+                        <li><a href="tel:4772067575"><i class="fas fa-phone"></i> 477 206 7575</a></li>
+                        <li><a href="tel:4775731618"><i class="fas fa-phone"></i> 477 573 1618</a></li>
+                        <li><i class="fas fa-clock"></i> L-S: 10AM-8:30PM</li>
+                        <li><i class="fas fa-clock"></i> Dom: 10AM-6PM</li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 YADOCEL. Todos los derechos reservados. | Reparación de Celulares en León, Gto.</p>
+                <p>&copy; 2026 YADOCEL. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
-
-    <!-- Anime.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
-    <!-- 3D Animations -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // === MOUSE GLOW FOLLOWER ===
-            const glow = document.getElementById('mouseGlow');
-            document.addEventListener('mousemove', (e) => {
-                anime({
-                    targets: glow,
-                    left: e.clientX + 'px',
-                    top: e.clientY + 'px',
-                    duration: 500,
-                    easing: 'easeOutQuad'
-                });
-            });
-
-            // === CREAR PARTICULAS ===
-            const particlesContainer = document.getElementById('heroParticles');
-            if (particlesContainer) {
-                for (let i = 0; i < 40; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.top = Math.random() * 100 + '%';
-                    particle.style.width = (Math.random() * 6 + 2) + 'px';
-                    particle.style.height = particle.style.width;
-                    particlesContainer.appendChild(particle);
-                }
-
-                anime({
-                    targets: '.particle',
-                    translateY: () => anime.random(-80, 80),
-                    translateX: () => anime.random(-40, 40),
-                    opacity: [0, () => anime.random(0.4, 0.9), 0],
-                    scale: [0, 1, 0],
-                    duration: () => anime.random(3000, 5000),
-                    delay: () => anime.random(0, 2000),
-                    loop: true,
-                    easing: 'easeInOutSine'
-                });
-            }
-
-            // === PREPARAR TITULO HERO ===
-            const heroTitle = document.querySelector('.hero-title');
-            if (heroTitle) {
-                heroTitle.innerHTML = heroTitle.textContent.split(' ').map(word =>
-                    `<span class="word">${word}</span>`
-                ).join(' ');
-            }
-
-            // === TIMELINE HERO ===
-            const heroTimeline = anime.timeline({ easing: 'easeOutExpo' });
-
-            heroTimeline
-                .add({
-                    targets: '.hero-title .word',
-                    translateY: [100, 0],
-                    rotateX: [-90, 0],
-                    opacity: [0, 1],
-                    duration: 1200,
-                    delay: anime.stagger(80),
-                    complete: () => heroTitle?.classList.add('glow')
-                }, 300)
-                .add({
-                    targets: '.hero-subtitle',
-                    translateY: [50, 0],
-                    opacity: [0, 1],
-                    filter: ['blur(10px)', 'blur(0px)'],
-                    duration: 1000
-                }, 800)
-                .add({
-                    targets: '.hero-buttons',
-                    translateY: [60, 0],
-                    opacity: [0, 1],
-                    duration: 1000
-                }, 1100)
-                .add({
-                    targets: '.hero-features',
-                    translateY: [50, 0],
-                    opacity: [0, 1],
-                    duration: 1000
-                }, 1300)
-                .add({
-                    targets: '.feature-item',
-                    translateY: [30, 0],
-                    scale: [0.8, 1],
-                    opacity: [0, 1],
-                    delay: anime.stagger(100),
-                    duration: 800,
-                    easing: 'easeOutBack'
-                }, 1400)
-                .add({
-                    targets: '.floating-badge',
-                    scale: [0, 1],
-                    rotate: [180, 0],
-                    opacity: [0, 1],
-                    duration: 1200,
-                    easing: 'easeOutElastic(1, .6)'
-                }, 1600);
-
-            // Badge flotando
-            anime({
-                targets: '.floating-badge',
-                translateY: [-10, 10],
-                rotate: [-3, 3],
-                duration: 2500,
-                direction: 'alternate',
-                loop: true,
-                easing: 'easeInOutSine',
-                delay: 2800
-            });
-
-            // === INTERSECTION OBSERVER ===
-            const observerOptions = {
-                threshold: 0.15,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                        entry.target.classList.add('animated');
-                        animateSection(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('section:not(.hero)').forEach(section => {
-                scrollObserver.observe(section);
-            });
-
-            // === ANIMAR SECCIONES ===
-            function animateSection(section) {
-                const sectionClass = section.className.split(' ')[0];
-
-                // Header de seccion
-                const header = section.querySelector('.section-header');
-                if (header) {
-                    anime.timeline({ easing: 'easeOutExpo' })
-                        .add({
-                            targets: header.querySelector('h2'),
-                            translateY: [50, 0],
-                            opacity: [0, 1],
-                            duration: 1000
-                        })
-                        .add({
-                            targets: header.querySelector('p'),
-                            translateY: [30, 0],
-                            opacity: [0, 1],
-                            duration: 800
-                        }, '-=700');
-                }
-
-                // Por seccion
-                switch(sectionClass) {
-                    case 'services':
-                        anime({
-                            targets: section.querySelectorAll('.service-card'),
-                            translateY: [100, 0],
-                            rotateX: [15, 0],
-                            opacity: [0, 1],
-                            delay: anime.stagger(150),
-                            duration: 1200,
-                            easing: 'easeOutElastic(1, .6)'
-                        });
-                        break;
-
-                    case 'products':
-                        anime({
-                            targets: section.querySelectorAll('.product-card'),
-                            scale: [0.8, 1],
-                            rotateY: [-10, 0],
-                            opacity: [0, 1],
-                            delay: anime.stagger(100, {grid: [3, 2], from: 'center'}),
-                            duration: 1000,
-                            easing: 'easeOutExpo'
-                        });
-                        break;
-
-                    case 'why-us':
-                        anime({
-                            targets: section.querySelectorAll('.feature-box'),
-                            translateY: [80, 0],
-                            rotateX: [10, 0],
-                            opacity: [0, 1],
-                            delay: anime.stagger(100, {grid: [3, 2], from: 'first'}),
-                            duration: 1100,
-                            easing: 'easeOutBack'
-                        });
-                        break;
-
-                    case 'contact':
-                        anime({
-                            targets: section.querySelectorAll('.info-card'),
-                            translateX: [-80, 0],
-                            rotateY: [-15, 0],
-                            opacity: [0, 1],
-                            delay: anime.stagger(100),
-                            duration: 1000,
-                            easing: 'easeOutExpo'
-                        });
-                        anime({
-                            targets: section.querySelector('.contact-form-wrapper'),
-                            translateX: [80, 0],
-                            rotateY: [15, 0],
-                            opacity: [0, 1],
-                            duration: 1200,
-                            delay: 300,
-                            easing: 'easeOutExpo'
-                        });
-                        anime({
-                            targets: section.querySelector('.map-container'),
-                            translateY: [50, 0],
-                            opacity: [0, 1],
-                            duration: 1000,
-                            delay: 600,
-                            easing: 'easeOutExpo'
-                        });
-                        break;
-                }
-            }
-
-            // Animar footer
-            const footerObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        anime({
-                            targets: '.footer-section',
-                            translateY: [50, 0],
-                            opacity: [0, 1],
-                            delay: anime.stagger(100),
-                            duration: 1000,
-                            easing: 'easeOutExpo'
-                        });
-                        footerObserver.disconnect();
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            const footer = document.querySelector('.footer');
-            if (footer) footerObserver.observe(footer);
-
-            // === TILT 3D EN CARDS ===
-            function addTiltEffect(selector, intensity = 10) {
-                document.querySelectorAll(selector).forEach(card => {
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
-                        const rotateX = (y - centerY) / intensity;
-                        const rotateY = (centerX - x) / intensity;
-
-                        // Update CSS variable for glow position
-                        card.style.setProperty('--mouse-x', (x / rect.width * 100) + '%');
-                        card.style.setProperty('--mouse-y', (y / rect.height * 100) + '%');
-
-                        anime({
-                            targets: card,
-                            rotateX: rotateX,
-                            rotateY: rotateY,
-                            scale: 1.05,
-                            boxShadow: '0 25px 50px rgba(0,0,0,0.2)',
-                            duration: 100,
-                            easing: 'linear'
-                        });
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        anime({
-                            targets: card,
-                            rotateX: 0,
-                            rotateY: 0,
-                            scale: 1,
-                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                            duration: 600,
-                            easing: 'easeOutElastic(1, .5)'
-                        });
-                    });
-                });
-            }
-
-            addTiltEffect('.service-card', 12);
-            addTiltEffect('.product-card', 15);
-            addTiltEffect('.feature-box', 12);
-            addTiltEffect('.info-card', 15);
-
-            // === PARALLAX EN HERO ===
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.addEventListener('mousemove', (e) => {
-                    const { clientX, clientY } = e;
-                    const { innerWidth, innerHeight } = window;
-                    const moveX = (clientX - innerWidth / 2) / innerWidth;
-                    const moveY = (clientY - innerHeight / 2) / innerHeight;
-
-                    anime({
-                        targets: '.hero-content',
-                        translateX: moveX * -15,
-                        translateY: moveY * -15,
-                        duration: 1000,
-                        easing: 'easeOutQuad'
-                    });
-
-                    anime({
-                        targets: '.floating-badge',
-                        translateX: moveX * 30,
-                        duration: 1000,
-                        easing: 'easeOutQuad'
-                    });
-                });
-            }
-
-            // === EFECTO MAGNETICO EN BOTONES ===
-            document.querySelectorAll('.btn-primary').forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    anime({
-                        targets: btn,
-                        translateX: x * 0.3,
-                        translateY: y * 0.3,
-                        duration: 200,
-                        easing: 'easeOutQuad'
-                    });
-                });
-
-                btn.addEventListener('mouseleave', () => {
-                    anime({
-                        targets: btn,
-                        translateX: 0,
-                        translateY: 0,
-                        duration: 600,
-                        easing: 'easeOutElastic(1, .3)'
-                    });
-                });
-            });
-
-            // === HOVER EN ICONOS DE SERVICIOS ===
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    anime({
-                        targets: card.querySelector('.service-icon'),
-                        rotateY: 360,
-                        scale: 1.15,
-                        duration: 800,
-                        easing: 'easeOutElastic(1, .5)'
-                    });
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    anime({
-                        targets: card.querySelector('.service-icon'),
-                        rotateY: 0,
-                        scale: 1,
-                        duration: 600,
-                        easing: 'easeOutQuad'
-                    });
-                });
-            });
-
-            // === WHATSAPP BUTTON ANIMATION ===
-            anime({
-                targets: '.whatsapp-float',
-                scale: [0, 1],
-                rotate: [180, 0],
-                duration: 1000,
-                delay: 2000,
-                easing: 'easeOutElastic(1, .5)'
-            });
-
-            // Hover effect
-            document.querySelector('.whatsapp-float')?.addEventListener('mouseenter', () => {
-                anime({
-                    targets: '.whatsapp-float',
-                    scale: 1.15,
-                    rotate: 10,
-                    duration: 300,
-                    easing: 'easeOutBack'
-                });
-            });
-
-            document.querySelector('.whatsapp-float')?.addEventListener('mouseleave', () => {
-                anime({
-                    targets: '.whatsapp-float',
-                    scale: 1,
-                    rotate: 0,
-                    duration: 300,
-                    easing: 'easeOutQuad'
-                });
-            });
-
-            // === NAVBAR HIDE/SHOW ON SCROLL ===
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('.header');
-                const currentScroll = window.pageYOffset;
-
-                if (currentScroll > 100) {
-                    if (currentScroll > lastScroll) {
-                        header.classList.add('hidden');
-                    } else {
-                        header.classList.remove('hidden');
-                    }
-                } else {
-                    header.classList.remove('hidden');
-                }
-                lastScroll = currentScroll;
-            });
-
-            // === FORM INPUT ANIMATIONS ===
-            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
-                input.addEventListener('focus', () => {
-                    anime({
-                        targets: input,
-                        scale: 1.02,
-                        duration: 300,
-                        easing: 'easeOutQuad'
-                    });
-                });
-
-                input.addEventListener('blur', () => {
-                    anime({
-                        targets: input,
-                        scale: 1,
-                        duration: 300,
-                        easing: 'easeOutQuad'
-                    });
-                });
-            });
-
-            // === SOCIAL LINKS HOVER ===
-            document.querySelectorAll('.social-links a').forEach((link, index) => {
-                link.addEventListener('mouseenter', () => {
-                    anime({
-                        targets: link,
-                        translateY: -8,
-                        scale: 1.2,
-                        rotate: 10,
-                        duration: 300,
-                        easing: 'easeOutBack'
-                    });
-                });
-
-                link.addEventListener('mouseleave', () => {
-                    anime({
-                        targets: link,
-                        translateY: 0,
-                        scale: 1,
-                        rotate: 0,
-                        duration: 300,
-                        easing: 'easeOutQuad'
-                    });
-                });
-            });
-
-        });
-    </script>
 </body>
 </html>
